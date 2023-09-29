@@ -1,1 +1,1 @@
-# VNUHCM Science and Technology Development Journal $\LaTeX$ Template
+# VNUHCM Journal of Science and Technology Development $\LaTeX$ Template
