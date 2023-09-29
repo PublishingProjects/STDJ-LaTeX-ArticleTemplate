@@ -1,0 +1,64 @@
+\documentclass{stdj}
+
+\directlua{
+authors = {
+    create_author("Author Name 1", "author1@example.com", {"Affiliation 1 Long Long Name", "Affiliation 2 Long Long Name"}, true),
+    create_author("Author Name 2", "author2@example.com", {"Affiliation 1 Long Long Name", "Affiliation 2 Long Long Name"}, true),
+    create_author("Author Name 3", "author3@example.com", {"Affiliation 3 Long Long Name"}, false),
+    create_author("Author Name 4", "author4@example.com", {"Affiliation 4 Long Long Name", "Affiliation 5 Long Long Name", "Affiliation 6 Long Long Name"}, false)
+}
+
+affiliations = {}
+affiliation_order_lookup = {}
+author_affiliation_indexes = {}
+
+do
+    local indexing_result = index_affiliations(authors)
+    affiliations = indexing_result.affiliations
+    affiliation_order_lookup = indexing_result.affiliation_order_lookup
+    author_affiliation_indexes = indexing_result.author_affiliation_indexes
+end
+
+}
+
+\renewcommand{\CorrespondenceLabel}{Correspondence}
+\renewcommand{\ArticleHistoryLabel}{History}
+\renewcommand{\CiteThisArticleLabel}{Cite this article}
+\renewcommand{\CiteAuthors}{Ten D H, Ten D H, Ten D H}
+\renewcommand{\JournalAbbreviation}{Sci. Tech. Dev.}
+\renewcommand{\ArticleTitle}{\lipsum[1][1-2]}
+\renewcommand{\VolumeYear}{\the\year}
+\renewcommand{\VolumeNumber}{26}
+\renewcommand{\IssueNumber}{2}
+\renewcommand{\FromPageNumber}{1000}
+
+\setcounter{page}{\FromPageNumber}
+\renewcommand{\ToPageNumber}{\pageref{LastPage}}
+
+\textblockorigin{\margin}{0mm}
+
+\begin{document}
+\rmfamily
+\title{\ArticleTitle}
+\pagestyle{FancyNotFirstPage}
+\thispagestyle{FancyFirstPage}
+
+\MakeSideBar
+\MakeAbstract
+
+\begin{multicols}{2}%
+    \pdfbookmark[section]{INTRODUCTION}{toc}%
+    \section*{INTRODUCTION}%
+    \vspace{0pt}%
+    \lipsum[1-2]
+\end{multicols}
+
+\noindent%
+\begin{abstract}
+    Abstract content.
+\end{abstract}
+\fcolorbox{black}{red}{
+    
+}\par
+\sfdefault\\\rmdefault\\\ttdefault
+\end{document}
